@@ -1,0 +1,27 @@
+商城项目表设计
+1：admin表
+字段:
+用户编号(id)
+用户名(username)
+密码(password)
+真实姓名(true_name)
+登录次数(login_count)
+上线时间(online_time)
+ip(login_ip)
+身份有效期(expire)
+权限(auth)
+注册时间(created_time)
+修改时间(updated_time)
+create table admin(
+id tinyint unsigned primary key auto_increment comment '编号',
+username varchar(20) not null comment '用户名',
+password char(32) not null comment '密码',
+true_name varchar(5) not null comment '真实姓名',
+login_count int default 1 not null comment '登录次数',
+online_time int not null comment '在线时间',
+login_ip int not null default 2130706433 comment '登录ip：默认本机ip地址',
+expire int not null defalut 3600*24*365 comment '身份有效期:默认1年',
+auth tinyint not null default 1 comment '权限编号',
+created_time int not null comment '注册时间',
+updated_time int not null comment '修改时间'
+)engine=myisam charset=utf8;
